@@ -57,7 +57,7 @@ const Contact = () => {
   };
 
   // Debug: Log the public key to verify .env loading
-  console.log("PUBLIC KEY:", process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+
 
   return (
     <div
