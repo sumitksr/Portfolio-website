@@ -29,6 +29,21 @@ const Footer = () => {
       >
         <SiCodeforces size={24} />
       </a>
+    <a
+  href="https://codolio.com/profile/Sumitksr"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Codolio"
+>
+  <img
+    src="https://codolio.com/favicon.ico" 
+    /* Or use the full owl logo SVG hosted locally or online */
+    alt="Codolio"
+    style={{ width: 24, height: 24 }}
+  />
+</a>
+
+
       <a
         href="https://www.linkedin.com/in/sumit-kumar-016377282/"
         target="_blank"
