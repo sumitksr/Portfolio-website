@@ -7,6 +7,9 @@ import {
   css,
   project2,
   project3,
+  project4,
+  project6,
+  project5,
   mysql,
   express,
   git,
@@ -200,10 +203,38 @@ const projects = [
       { name: "JavaScript", color: "pink-text-gradient" },
       { name: "REST API", color: "green-text-gradient" },
     ],
-    image: project2,
+    image: project4,
     source_code_link: "https://github.com/sumitksr/Weather-App",
     live_demo_link: "https://weather-app-alpha-azure.vercel.app/",
   },
+  {
+  name: "Razorpay Clone",
+  description:
+    "A visually accurate frontend clone of Razorpay built with HTML and Tailwind CSS. Fully responsive layout replicating modern UI components and animations for practice and learning purposes.",
+  tags: [
+    { name: "HTML", color: "blue-text-gradient" },
+    { name: "Tailwind CSS", color: "green-text-gradient" }
+  ],
+  image: project5,
+  source_code_link: "https://github.com/sumitksr/Razorpay-Clone",
+  live_demo_link: "https://razorpay-clone-eight-woad.vercel.app/",
+},
+{
+  name: "GreenCart – Sparkathon Project",
+  description:
+    "An eco-friendly e-commerce platform built for the Walmart Sparkathon Hackathon. Encourages sustainable shopping through eco points, green product choices, tree donations, and a global leaderboard to track environmental impact.",
+  tags: [
+    { name: "React", color: "blue-text-gradient" },
+    { name: "Express.js", color: "green-text-gradient" },
+    { name: "MongoDB", color: "white-text-gradient" },
+    { name: "Tailwind CSS", color: "pink-text-gradient" }
+  ],
+  image: project6,
+  source_code_link: "https://github.com/sumitksr/Sparkathon",
+  live_demo_link: "https://greencart-learners.vercel.app/",
+},
+
+
 ];
 
 export { services, technologies, experiences, projects, achievements };

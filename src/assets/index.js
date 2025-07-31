@@ -25,6 +25,9 @@ import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
+import project4 from './project4.png';
+import project5 from './project5.png';
+import project6 from './project6.png';
 
 export {
   logo,
@@ -54,4 +57,7 @@ export {
   reactjs,
   redux,
   tailwind,
+  project4,
+  project5,
+  project6,
 };
