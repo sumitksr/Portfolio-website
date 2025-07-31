@@ -222,7 +222,7 @@ const projects = [
 {
   name: "GreenCart – Sparkathon Project",
   description:
-    "An eco-friendly e-commerce platform built for the Walmart Sparkathon Hackathon. Encourages sustainable shopping through eco points, green product choices, tree donations, and a global leaderboard to track environmental impact.",
+    "An eco-friendly e-commerce platform built for the Walmart Sparkathon Hackathon. ",
   tags: [
     { name: "React", color: "blue-text-gradient" },
     { name: "Express.js", color: "green-text-gradient" },
