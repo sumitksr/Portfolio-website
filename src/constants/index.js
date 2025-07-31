@@ -129,10 +129,10 @@ const experiences = [
     company_name: "Honda Cars India Ltd.",
     icon: undefined, 
     iconBg: "#383E56",
-    date: "June 2025 - Ongoing",
+    date: "June 2025 - July 2025",
     points: [
-      "Developing AI-based solutions for Electric Vehicles, targeting a 15–20% improvement in system efficiency through predictive maintenance and smart optimization models.",
-      "Proposed and implemented UI/UX improvements across internal dashboards, aiming to streamline navigation, reduce cognitive load, and improve task completion time for over 100 users."
+      "Contributed to the development of an AI-Powered Driver Drowsiness and Distraction Detection System, enhancing road safety through real-time facial behavior monitoring using computer vision techniques.",
+      "Gained practical experience with enterprise-grade automotive software such as HDMPS , H-Connect etc.and developed a deep understanding of digital workflows in large-scale OEMs like Honda."
     ],
   },
 ];
@@ -140,7 +140,7 @@ const experiences = [
 
 
 const achievements = [
-  "Knight on LeetCode with peak rating 1850+; ranked 1287 globally in Weekly Contest 451.",
+  "Knight on LeetCode with peak rating 1919+; ranked 1287 globally in Weekly Contest 451.",
   "Pupil on Codeforces with rating 1376; ranked 1261 in Round 1028 [Div. 2].",
   "Ranked Top 20 on the TUF+ Leaderboard among 5,000+ active DSA learners."
 ];
@@ -162,6 +162,35 @@ const projects = [
     live_demo_link: "https://delhi-metro-app-ochre.vercel.app/",
   },
   {
+  name: "Blog Platform",
+  description:
+    "Full-stack blog platform built with React and Express. Features user authentication, CRUD operations, and a responsive UI. Allows users to create, edit, and explore blogs in real-time.",
+  tags: [
+    { name: "React", color: "blue-text-gradient" },
+    { name: "Express", color: "green-text-gradient" },
+    { name: "MongoDB", color: "white-text-gradient" },
+    { name: "Node.js", color: "pink-text-gradient" }
+  ],
+  image: project2, 
+  source_code_link: "https://github.com/sumitksr/BlogApp",
+  live_demo_link: "https://blogapp-sumitksr.vercel.app/",
+},
+
+  {
+  name: "URL Shortener",
+  description:
+    "A sleek and efficient URL shortener built with Next.js. Converts long URLs into compact links using Base62 encoding and supports custom aliases with real-time redirection and link preview.",
+  tags: [
+    { name: "Next.js", color: "blue-text-gradient" },
+    { name: "JavaScript", color: "pink-text-gradient" },
+    { name: "Base62", color: "green-text-gradient" },
+    { name: "MongoDB", color: "white-text-gradient" }
+  ],
+  image: project3, 
+  source_code_link: "https://github.com/sumitksr/URL-Shortner",
+  live_demo_link: "https://bitzipp.vercel.app/",
+},
+{
     name: "Weather App",
     description:
       "Real-time weather app using OpenWeather API supporting 2,00,000+ cities. Optimized UI for 20+ screen sizes with mobile-first layout and error handling.",
@@ -174,19 +203,6 @@ const projects = [
     image: project2,
     source_code_link: "https://github.com/sumitksr/Weather-App",
     live_demo_link: "https://weather-app-alpha-azure.vercel.app/",
-  },
-  {
-    name: "Tick Tack Toe",
-    description:
-      "A simple and fast implementation of the classic Tick Tack Toe game with a clean UI and responsive design. Play against a friend and enjoy the interactive experience.",
-    tags: [
-      { name: "React", color: "blue-text-gradient" },
-      { name: "JavaScript", color: "green-text-gradient" },
-      { name: "CSS", color: "white-text-gradient" },
-    ],
-    image: project3,
-    source_code_link: "https://github.com/sumitksr/Tick-TacK-Toe",
-    live_demo_link: "https://tick-tac-k-toe.vercel.app/",
   },
 ];
 
