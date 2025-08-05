@@ -44,7 +44,7 @@ const Hero = () => {
               View My Work
             </motion.a>
             <motion.a 
-              href="https://drive.google.com/file/d/1mD_vl-DGoMxXsEs94F_3Q52e0mucBPdq/view?usp=sharing"
+              href="https://bitzipp.vercel.app/resume"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border-2 border-blue-500/50 text-blue-400 rounded-full font-semibold hover:bg-blue-500/10 transition-all duration-300 inline-block text-center"
