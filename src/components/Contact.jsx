@@ -30,17 +30,19 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    // build payload matching your template's {{name}}, {{email}}, {{message}}, {{time}}
+    const params = {
+      name:    form.name,
+      email:   form.email,
+      message: form.message,
+      time:    new Date().toLocaleString(),
+    };
+
     emailjs
       .send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Sumit Kumar",
-          from_email: form.email,
-          to_email: "sumitksr4156@gmail.com",
-          message: form.message,
-        }
+        params
       )
       .then(
         () => {
@@ -55,9 +57,6 @@ const Contact = () => {
         }
       );
   };
-
-  // Debug: Log the public key to verify .env loading
-
 
   return (
     <div
