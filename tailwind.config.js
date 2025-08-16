@@ -19,6 +19,20 @@ module.exports = {
       screens: {
         xs: "450px",
       },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        'blur-to-sharp': {
+          '0%': { filter: 'blur(20px)' },
+          '100%': { filter: 'blur(0px)' }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in 0.8s ease-out forwards',
+        'blur-to-sharp': 'blur-to-sharp 1s ease-out forwards'
+      }
     },
   },
   plugins: [],
