@@ -54,7 +54,7 @@ const InitialLoader = ({ onComplete }) => {
           ? 'scale-125 opacity-0 blur-lg' 
           : ''
       }`}>
-        Sumit
+        Hello, World! 🌍
       </h1>
     </div>
   );
