@@ -194,6 +194,20 @@ const projects = [
   live_demo_link: "https://bitzipp.vercel.app/",
 },
 {
+  name: "Quizlyze",
+  description:
+    "An AI-powered learning companion that transforms any content — PDF, text, or YouTube videos — into interactive educational experiences. Generate summaries, quizzes, and flashcards on the fly to help you learn smarter and faster.",
+  tags: [
+    { name: "AI / LLM", color: "purple-text-gradient" },
+    { name: "Next.js", color: "blue-text-gradient" },
+    { name: "Tailwind CSS", color: "green-text-gradient" },
+    { name: "Google Gemini", color: "orange-text-gradient" }
+  ],
+  image: project5,
+  source_code_link: "https://github.com/sumitksr/Quizlyze",
+  live_demo_link: "https://quizlyze.vercel.app/",
+},
+{
     name: "Weather App",
     description:
       "Real-time weather app using OpenWeather API supporting 2,00,000+ cities. Optimized UI for 20+ screen sizes with mobile-first layout and error handling.",
@@ -208,18 +222,6 @@ const projects = [
     live_demo_link: "https://weather-app-alpha-azure.vercel.app/",
   },
   {
-  name: "Razorpay Clone",
-  description:
-    "A visually accurate frontend clone of Razorpay built with HTML and Tailwind CSS. Fully responsive layout replicating modern UI components and animations for practice and learning purposes.",
-  tags: [
-    { name: "HTML", color: "blue-text-gradient" },
-    { name: "Tailwind CSS", color: "green-text-gradient" }
-  ],
-  image: project5,
-  source_code_link: "https://github.com/sumitksr/Razorpay-Clone",
-  live_demo_link: "https://razorpay-clone-eight-woad.vercel.app/",
-},
-{
   name: "GreenCart – Sparkathon Project",
   description:
     "An eco-friendly e-commerce platform built for the Walmart Sparkathon Hackathon. ",
