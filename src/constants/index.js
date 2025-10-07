@@ -198,7 +198,7 @@ const projects = [
   description:
     "An AI-powered learning companion that transforms any content — PDF, text, or YouTube videos — into interactive educational experiences. Generate summaries, quizzes, and flashcards on the fly to help you learn smarter and faster.",
   tags: [
-    { name: "AI / LLM", color: "purple-text-gradient" },
+  
     { name: "Next.js", color: "blue-text-gradient" },
     { name: "Tailwind CSS", color: "green-text-gradient" },
     { name: "Google Gemini", color: "orange-text-gradient" }
