@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaGlobe } from "react-icons/fa6";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 
 const Footer = () => {
@@ -68,6 +68,15 @@ const Footer = () => {
       >
         <FaInstagram size={24} />
       </a>
+      <a
+  href="https://takeuforward.org/profile/sumitksr"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Take U Forward"
+>
+  <FaGlobe size={24} />
+</a>
+
     </footer>
   );
 };
