@@ -6,12 +6,12 @@ const styles = {
   heroHeadText:
     "font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2",
   heroSubText:
-    "text-[#e2e8f0] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]",
+    "text-[#a89fd8] font-medium lg:text-[28px] sm:text-[24px] xs:text-[20px] text-[16px] lg:leading-[40px]",
 
   sectionHeadText:
     "text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
   sectionSubText:
-    "sm:text-[18px] text-[14px] text-[#60a5fa] uppercase tracking-wider font-semibold",
+    "sm:text-[18px] text-[14px] text-[#d4af37] uppercase tracking-widest font-semibold font-mono",
 };
 
 export { styles };

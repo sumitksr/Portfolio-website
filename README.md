@@ -26,41 +26,6 @@ A modern, responsive portfolio website built with React and Tailwind CSS, featur
 - Node.js (version 14 or higher)
 - npm or yarn
 
-### 🛠️ Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd Huzaif-Ahmed-Portfolio
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables:**
-   Create a `.env` file in the root directory and add your EmailJS credentials:
-   ```
-   REACT_APP_EMAILJS_SERVICE_ID=your_service_id_here
-   REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id_here
-   REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key_here
-   ```
-
-4. **Start the development server:**
-   ```bash
-   npm start
-   ```
-
-   The application will open in your browser at [http://localhost:3000](http://localhost:3000) 🌐
-
-### 🏗️ Building for Production
-
-To create a production build:
-```bash
-npm run build
-```
-The build files will be created in the `build` folder.
 
 ## 📁 Project Structure
 

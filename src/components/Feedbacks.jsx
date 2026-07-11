@@ -9,6 +9,9 @@ import { achievements } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Achievement icons mapped by type
+const achievementIcons = ["🏆", "⚔️", "🎯"];
+
 const AchievementCard = ({ achievement, index }) => {
   const cardRef = useRef(null);
 
@@ -16,12 +19,12 @@ const AchievementCard = ({ achievement, index }) => {
     const el = cardRef.current;
     gsap.fromTo(
       el,
-      { opacity: 0, y: 100, scale: 0.8 },
+      { opacity: 0, y: 80, scale: 0.9 },
       {
         opacity: 1,
         y: 0,
         scale: 1,
-        delay: index * 0.2,
+        delay: index * 0.15,
         duration: 0.8,
         ease: "power3.out",
         scrollTrigger: {
@@ -37,32 +40,82 @@ const AchievementCard = ({ achievement, index }) => {
   return (
     <motion.div
       ref={cardRef}
-      whileHover={{ y: -5, scale: 1.02 }}
+      whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.3 }}
-      className="relative group"
+      className="relative group w-full"
     >
-      <div className="bg-gradient-to-br from-blue-500/10 to-purple-600/10 p-[1px] rounded-2xl shadow-2xl border border-blue-500/20">
-        <div className="bg-black/80 backdrop-blur-sm rounded-2xl p-8 h-full flex flex-col justify-center relative overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-          
-          {/* Achievement number */}
-          <div className="absolute top-4 left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-sm font-bold">{index + 1}</span>
+      <div
+        className="relative rounded-2xl overflow-hidden h-full"
+        style={{
+          background: "rgba(14, 8, 40, 0.92)",
+          border: "1px solid rgba(124,58,237,0.2)",
+          backdropFilter: "blur(12px)",
+        }}
+      >
+        {/* Gold top accent bar */}
+        <div
+          className="h-[2px] w-full"
+          style={{
+            background: "linear-gradient(90deg, transparent, #d4af37, transparent)",
+          }}
+        />
+
+        <div className="p-7 h-full flex flex-col justify-between relative overflow-hidden">
+          {/* Constellation decoration (top-right) */}
+          <div className="absolute top-0 right-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="60" cy="10" r="1.5" fill="#d4af37" />
+              <circle cx="40" cy="25" r="1" fill="#7c3aed" />
+              <circle cx="70" cy="30" r="1" fill="#d4af37" />
+              <circle cx="50" cy="50" r="1.5" fill="#4f46e5" />
+              <line x1="60" y1="10" x2="40" y2="25" stroke="rgba(212,175,55,0.4)" strokeWidth="0.5" />
+              <line x1="40" y1="25" x2="70" y2="30" stroke="rgba(124,58,237,0.4)" strokeWidth="0.5" />
+              <line x1="70" y1="30" x2="50" y2="50" stroke="rgba(212,175,55,0.4)" strokeWidth="0.5" />
+            </svg>
           </div>
-          
-          {/* Achievement content */}
-          <div className="relative z-10">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-              <p className="text-white text-[16px] font-medium leading-relaxed group-hover:text-blue-300 transition-colors duration-300">
-                {achievement}
-              </p>
+
+          {/* Header row */}
+          <div className="flex items-start gap-4 mb-4">
+            {/* Number badge */}
+            <div
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-black font-mono text-sm"
+              style={{
+                background: "linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1))",
+                border: "1px solid rgba(212,175,55,0.4)",
+                color: "#d4af37",
+                boxShadow: "0 0 12px rgba(212,175,55,0.2)",
+              }}
+            >
+              {String(index + 1).padStart(2, "0")}
             </div>
-            
-            {/* Bottom accent line */}
-            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Achievement emoji icon */}
+            <div
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-lg"
+              style={{
+                background: "rgba(124,58,237,0.1)",
+                border: "1px solid rgba(124,58,237,0.2)",
+              }}
+            >
+              {achievementIcons[index % achievementIcons.length]}
+            </div>
           </div>
+
+          {/* Achievement text */}
+          <div className="relative z-10 flex-1">
+            <p
+              className="text-[15px] leading-[26px] transition-colors duration-300 group-hover:text-white"
+              style={{ color: "#c4bce8" }}
+            >
+              {achievement}
+            </p>
+          </div>
+
+          {/* Bottom accent line */}
+          <div
+            className="mt-5 h-[1px] w-0 group-hover:w-full transition-all duration-500 rounded-full"
+            style={{ background: "linear-gradient(90deg, #7c3aed, #d4af37, transparent)" }}
+          />
         </div>
       </div>
     </motion.div>
@@ -71,26 +124,28 @@ const AchievementCard = ({ achievement, index }) => {
 
 const Achievements = () => {
   return (
-    <div className={`mt-12 relative`}>
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-600/5 rounded-3xl"></div>
-      
-      <div className={`relative bg-black/40 backdrop-blur-sm rounded-3xl ${styles.padding} min-h-[200px] border border-blue-500/20`}>
+    <div className="mt-6 relative">
+      {/* Section header */}
+      <div className="text-center mb-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full"
+          style={{
+            background: "rgba(212,175,55,0.08)",
+            border: "1px solid rgba(212,175,55,0.25)",
+          }}
         >
-          <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30">
-            <span className="text-blue-400 text-sm font-medium">My Journey</span>
-          </div>
-          <p className={styles.sectionSubText}>Milestones</p>
-          <h2 className={styles.sectionHeadText}>Achievements.</h2>
+          <span className="text-[#d4af37] text-sm">✦</span>
+          <span className="text-[#d4af37] text-sm font-mono font-medium tracking-wider">Milestones</span>
         </motion.div>
+        <p className={styles.sectionSubText}>Competitive Programming</p>
+        <h2 className={`${styles.sectionHeadText} mt-2`}>Achievements.</h2>
       </div>
-      
-      <div className={`-mt-10 pb-14 ${styles.paddingX} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center`}>
+
+      {/* Achievement cards grid */}
+      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
         {achievements.map((achievement, index) => (
           <AchievementCard key={index} achievement={achievement} index={index} />
         ))}

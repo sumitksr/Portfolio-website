@@ -30,27 +30,97 @@ const useGsap = (elementRef, animation, delay = 0) => {
   }, [elementRef, animation, delay]);
 };
 
+// Icon map for cosmic color treatment
+const cardColors = [
+  { accent: "#7c3aed", glow: "rgba(124,58,237,0.3)" },
+  { accent: "#4f46e5", glow: "rgba(79,70,229,0.3)" },
+  { accent: "#d4af37", glow: "rgba(212,175,55,0.3)" },
+  { accent: "#7c3aed", glow: "rgba(124,58,237,0.3)" },
+];
+
 const ServiceCard = ({ index, title, icon }) => {
   const cardRef = useRef(null);
-  useGsap(cardRef, {
-    from: { opacity: 0, y: 100, scale: 0.8 },
-    to: { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out" },
-  }, index * 0.2);
+  useGsap(
+    cardRef,
+    {
+      from: { opacity: 0, y: 80, scale: 0.85 },
+      to: { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" },
+    },
+    index * 0.15
+  );
+
+  const color = cardColors[index % cardColors.length];
 
   return (
     <motion.div
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <Tilt className="xs:w-[280px] w-full">
-        <div ref={cardRef} className="w-full bg-gradient-to-br from-blue-500/10 to-purple-600/10 p-[1px] rounded-2xl shadow-2xl border border-blue-500/20">
-          <div className="bg-black/80 backdrop-blur-sm rounded-2xl py-8 px-8 min-h-[300px] flex flex-col justify-center items-center text-center group hover:bg-black/90 transition-all duration-300">
-            <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+      <Tilt className="xs:w-[260px] w-full" options={{ max: 20, scale: 1.02, speed: 400 }}>
+        <div
+          ref={cardRef}
+          className="relative w-full rounded-2xl overflow-hidden group"
+          style={{
+            background: "rgba(14, 8, 40, 0.9)",
+            border: "1px solid rgba(124,58,237,0.2)",
+            backdropFilter: "blur(12px)",
+            transition: "all 0.4s ease",
+          }}
+        >
+          {/* Gold top accent bar (appears on hover) */}
+          <div
+            className="h-[2px] w-full transition-all duration-500"
+            style={{
+              background: `linear-gradient(90deg, transparent, ${color.accent}, #d4af37, transparent)`,
+              opacity: 0.6,
+            }}
+          />
+
+          <div className="py-10 px-8 min-h-[280px] flex flex-col justify-center items-center text-center">
+            {/* Icon container */}
+            <div
+              className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-400 group-hover:scale-110"
+              style={{
+                background: `linear-gradient(135deg, rgba(124,58,237,0.2), rgba(79,70,229,0.1))`,
+                border: `1px solid ${color.accent}40`,
+                boxShadow: `0 0 20px ${color.glow}`,
+              }}
+            >
               <img src={icon} alt={title} className="w-12 h-12 object-contain" />
             </div>
-            <h3 className="text-white text-[22px] font-bold mb-4 group-hover:text-blue-400 transition-colors duration-300">{title}</h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Title */}
+            <h3
+              className="text-white text-[20px] font-bold mb-4 group-hover:text-transparent transition-all duration-300"
+              style={{
+                backgroundImage: `linear-gradient(135deg, #ffffff, ${color.accent})`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "inherit",
+              }}
+            >
+              {title}
+            </h3>
+
+            {/* Bottom accent */}
+            <div
+              className="w-12 h-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+              style={{ background: `linear-gradient(90deg, ${color.accent}, #d4af37)` }}
+            />
+
+            {/* Corner star decoration */}
+            <span
+              className="absolute top-4 right-4 text-xs opacity-20 group-hover:opacity-60 transition-opacity duration-300"
+              style={{ color: "#d4af37" }}
+            >
+              ✦
+            </span>
           </div>
+
+          {/* Hover glow overlay */}
+          <div
+            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+            style={{ boxShadow: `inset 0 0 40px ${color.glow}`, borderColor: color.accent + "60" }}
+          />
         </div>
       </Tilt>
     </motion.div>
@@ -61,43 +131,67 @@ const About = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
 
-  // Heading Animation
   useGsap(headingRef, {
     from: { opacity: 0, x: -50 },
     to: { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
   });
 
-  // Paragraph Animation
-  useGsap(paragraphRef, {
-    from: { opacity: 0, y: 50 },
-    to: { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
-  }, 0.3);
+  useGsap(
+    paragraphRef,
+    {
+      from: { opacity: 0, y: 40 },
+      to: { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
+    },
+    0.3
+  );
 
   return (
     <>
+      {/* Section header */}
       <div ref={headingRef} className="text-center mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30"
+          className="inline-flex items-center gap-2 mb-4 px-5 py-2 rounded-full"
+          style={{
+            background: "rgba(212,175,55,0.08)",
+            border: "1px solid rgba(212,175,55,0.25)",
+          }}
         >
-          <span className="text-blue-400 text-sm font-medium">Get to know me</span>
+          <span className="text-[#d4af37] text-sm">✦</span>
+          <span className="text-[#d4af37] text-sm font-mono font-medium tracking-wider">Get to know me</span>
         </motion.div>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={`${styles.sectionHeadText} mt-2`}>Overview.</h2>
       </div>
 
+      {/* Bio paragraph */}
       <div ref={paragraphRef} className="max-w-4xl mx-auto text-center mb-20">
-        <p className="text-gray-300 text-[18px] leading-[32px]">
-          I'm a passionate full-stack developer with expertise in C++, JavaScript, React, Node.js, and Express.js. 
-          Currently interning at Honda Cars India, where I'm working on cutting-edge AI solutions and UI/UX improvements. 
-          I've built innovative projects like a Delhi Metro Route Optimizer and Weather App, always focusing on creating 
-          scalable, efficient solutions that make a real impact.
-        </p>
+        <div
+          className="relative p-8 rounded-2xl"
+          style={{
+            background: "rgba(14,8,40,0.6)",
+            border: "1px solid rgba(124,58,237,0.15)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          {/* Decorative corner stars */}
+          <span className="absolute top-4 left-4 text-[#d4af37] opacity-30 text-lg">✦</span>
+          <span className="absolute bottom-4 right-4 text-[#7c3aed] opacity-30 text-lg">✦</span>
+
+          <p className="text-[#a89fd8] text-[17px] leading-[32px]">
+            Passionate <span className="text-white font-semibold">Full-Stack Developer</span> with expertise in{" "}
+            <span className="text-[#7c3aed] font-semibold">C++, JavaScript, React, Node.js, Express.js, and MongoDB</span>. Former
+            <span className="text-[#d4af37] font-semibold"> IT Intern at Honda Cars India</span>, where I worked on AI solutions and UI/UX improvements. I enjoy building scalable applications such as an{" "}
+            <span className="text-white font-semibold">AI Interview Preparation Platform</span> and a{" "}
+            <span className="text-white font-semibold">Movie Recommendation System</span>. With 900+ LeetCode problems solved, I have a strong foundation in data structures and algorithms and am currently exploring Machine Learning and AI to develop intelligent, real-world solutions.
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+      {/* Service cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
