@@ -19,6 +19,13 @@ const socialLinks = [
     glow: "rgba(212,175,55,0.4)",
   },
   {
+    href: "https://leetcode.com/u/sumitks",
+    icon: <SiLeetcode size={20} />,
+    title: "LeetCode 2",
+    color: "#d4af37",
+    glow: "rgba(212,175,55,0.4)",
+  },
+  {
     href: "https://codeforces.com/profile/sumitksr",
     icon: <SiCodeforces size={20} />,
     title: "Codeforces",
