@@ -14,8 +14,6 @@
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.1",
-    "baseline-browser-mapping": "^2.11.7",
-    "caniuse-lite": "^1.0.30001806",
     "dotenv": "^17.0.0",
     "email-js": "^2.0.3",
     "framer-motion": "^9.0.7",
